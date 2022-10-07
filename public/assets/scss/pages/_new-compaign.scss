@@ -1,0 +1,87 @@
+.social-icon{
+	height:63px;
+	width:63px;
+	line-height:63px;
+	text-align:center;
+	font-size:30px;
+	border-radius:$radius;
+	margin-bottom:0px;
+}
+.tag_complete{
+	@extend .form-control;
+	height: auto;
+	
+	.tags_container .tag {
+		border-radius: $radius;
+		color: $black;
+		background: #dddddd;
+		font-size: 14px;
+		padding: 8px 15px;
+		text-decoration: none;
+		margin: 2px;
+		display: inline-block;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		.close {
+			opacity: 0.5;
+			float: none;
+			font-size: inherit;
+			transform: scale(1.5);
+			-moz-transform: scale(1.5);
+			-webkit-transform: scale(1.5);
+			display: inline-block;
+			transform-origin: right;
+			-moz-transform-origin: right;
+			-webkit-transform-origin: right;
+			margin-left: 10px;
+			cursor: pointer;
+			text-shadow: none;
+			
+			&:after {
+				content: '\d7';
+			}
+			
+		}
+	}
+}
+.tag_complete_main .autocomplete:not(.hide) {
+    list-style: none;
+    background: #fff;
+	border: 1px solid #f0f1f5;
+    display: block;
+    position: relative;
+    margin: 0px;
+    list-style: none;
+    border-bottom-right-radius: $radius;
+    border-bottom-left-radius: $radius;
+    max-height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.budget-check{
+	display: block;
+
+	.btn{
+		border-radius:$radius !important;
+		font-size: 15px !important;
+		margin-right: 8px;
+		float: left;
+		background: $primary-light;
+		border-color: transparent;
+		&:hover{
+			background: $primary;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+

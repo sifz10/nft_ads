@@ -1,0 +1,52 @@
+
+
+.tag_complete .tags_container{
+	display:inline;
+	margin:auto 0;
+}
+
+.tag_complete .tag_input{
+	all:unset;
+	min-height:45px !important;
+	background:none;
+	display:inline;
+	margin:unset;
+	padding: unset;
+	border:0 !important;
+	width:unset;
+	box-shadow: none !important;
+}
+
+.tag_complete .tags_container .tag{
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: roboto;
+  color: #2e55fa;
+  background: #e1e7ff;
+  font-size: 15px;
+  padding: 2px 0 2px 10px;
+  text-decoration: none;
+  margin:2px;
+  display:inline-block;
+  -moz-user-select:none;
+  -webkit-user-select:none;
+  -ms-user-select:none;
+   user-select:none;
+   text-transform: capitalize;
+}
+.tag_complete_main .hide{
+	display:none !important;
+}
+
+
+
+.tag_complete_main .autocomplete li{
+    padding: 10px 20px 10px 20px;
+}
+
+.tag_complete_main .has_autocomplete{
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius:0px;
+	border-bottom: 0px;
+}

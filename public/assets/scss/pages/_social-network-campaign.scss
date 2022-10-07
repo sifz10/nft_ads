@@ -1,0 +1,30 @@
+.social-Campaign-audio{
+	.sca-row{
+		border-radius:14px;
+		display:flex;
+		flex-flow:wrap;
+		&:hover{
+			box-shadow:0px 0px 30px rgba(0,0,0,0.1); 
+			background:$white;
+		}
+	}
+}
+.social-icon{
+	height:63px;
+	width:63px;
+	line-height:63px;
+	text-align:center;
+	font-size:30px;
+	border-radius:$radius;
+	margin-bottom:0px;
+	@include respond ('phone'){
+		height:45px;
+		width:45px;
+		line-height:45px;
+		font-size:22px;
+	}
+}
+
+.min-w28{
+	min-width:28px;
+}

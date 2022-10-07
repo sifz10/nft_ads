@@ -33,12 +33,22 @@
 
                     <!-- Profile dropdown -->
                     <div class="relative ml-3">
+                      @auth
                         <div>
-                            <a type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false"
-                              aria-haspopup="true">
-                                <a href="{!! route('login') !!}" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium font-kalam" aria-current="page">Login</a>
-                            </a>
+                           <a type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false"
+                             aria-haspopup="true">
+                             <a href="{!! route('dashboard') !!}" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium font-kalam" aria-current="page">Dashboard</a>
+                           </a>
+                         </div>
+                      @endauth
+                      @guest
+                       <div>
+                          <a type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false"
+                            aria-haspopup="true">
+                            <a href="{!! route('login') !!}" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium font-kalam" aria-current="page">Login</a>
+                          </a>
                         </div>
+                      @endguest
                     </div>
                 </div>
             </div>

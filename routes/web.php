@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +19,16 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/logout', function(Request $request){
+  Auth::logout();
+  $request->session()->invalidate();
+  $request->session()->regenerateToken();
+  return redirect('/');
+});
 require __DIR__.'/auth.php';
