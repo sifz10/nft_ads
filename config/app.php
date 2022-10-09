@@ -69,7 +69,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Dhaka',
 
     /*
     |--------------------------------------------------------------------------
@@ -195,7 +195,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
-
+        Intervention\Image\ImageServiceProvider::class
     ],
 
     /*
@@ -210,7 +210,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ])->toArray(),
 
 ];

@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -23,6 +24,7 @@ class User extends Authenticatable
         'email',
         'password',
         'account_type',
+        'profile_picture',
     ];
 
     /**
@@ -43,4 +45,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $table = 'users';
+    protected $primaryKey = 'id';
+
+    public function socialmedia()
+    {
+      return $this->hasOne(Socialmedia::class);
+    }
 }

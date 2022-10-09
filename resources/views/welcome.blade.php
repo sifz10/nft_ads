@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>NFT Ads</title>
     @vite('resources/css/app.css')
+    <link rel="icon" type="image/x-icon" href="{!! asset('uploads') !!}/logo/favicon.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kalam&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
@@ -215,7 +216,7 @@
                 </li>
             </ul>
         </div>
-        <span class="block text-sm sm:text-center dark:text-gray-400 text-white font-kalam">© {{ \Carbon\Carbon::now()->format('Y') }} <a href="{{ env('APP_NAME') }}" class="hover:underline">{{ env('APP_NAME') }}</a>. All Rights Reserved.
+        <span class="block text-sm sm:text-center dark:text-gray-400 text-white font-kalam">© {{ \Carbon\Carbon::now()->format('Y') }} <a href="{!! route('welcome') !!}" class="hover:underline">{{ env('APP_NAME') }}</a>. All Rights Reserved.
         </span>
     </footer>
 
