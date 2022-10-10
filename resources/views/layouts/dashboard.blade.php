@@ -661,16 +661,16 @@
                                     <span class="badge light text-white bg-primary">5</span>
                                 </a>
                             </li>
-                            
+
                             <li class="nav-item dropdown d-none d-xl-flex">
-                                <a class="btn btn-primary" href="new-compaign.html">+ New Campaign</a>
+                                <a class="btn btn-primary" href="{!! route('create.ads') !!}">+ New Campaign</a>
                             </li>
                             <li class="nav-item dropdown header-profile side">
                                 <a class="nav-link" href="#">
                                     <div class="header-info">
                                         <span>Hello, <strong>{{ Auth::user()->name }}</strong></span>
                                     </div>
-                                    <img src="{!! Auth::user()->profile_picture !!}" width="20" alt="" />
+                                    <img src="{!! asset(Auth::user()->profile_picture) !!}" width="20" alt="" />
                                 </a>
                             </li>
                         </ul>
@@ -694,7 +694,9 @@
             Content body start
         ***********************************-->
 
-        <div class="profile-sidebar dz-scroll" id="DZ_W_Sidebar">
+        {{-- @if (Route::is('dashboard'))
+        @endif --}}
+          <div class="profile-sidebar dz-scroll" id="DZ_W_Sidebar">
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h5 class="text-black">Profile</h5>
                 <a href="#" class="text-red text-primary edit-profile-link" data-toggle="modal" data-target="#exampleModalCenter">
@@ -734,7 +736,7 @@
                                 <input type="text" class="form-control mb-3" name="name" value="{{ Auth::user()->name }}">
                                 <label for="">Email</label>
                                 <input type="text" disabled class="form-control mb-3" name="email" value="{{ Auth::user()->email }}">
-                                <img id="output" src="{!! Auth::user()->profile_picture !!}" width="140" height="140" style="border: 1px solid black;border-radius: 50%">
+                                <img id="output" src="{!! asset(Auth::user()->profile_picture) !!}" width="140" height="140" style="border: 1px solid black;border-radius: 50%">
                                 <br>
                                 <br>
                                 <div class="input-group mb-3">
@@ -763,7 +765,7 @@
             </div>
 
             <div class="profile-img mb-4">
-                <img src="{!! Auth::user()->profile_picture !!}" width="140" height="140" alt=""  style="border: 1px solid green"/>
+                <img src="{!! asset(Auth::user()->profile_picture) !!}" width="140" height="140" alt=""  style="border: 1px solid green"/>
             </div>
             <div class="profile-info-bx mb-4">
                 <h4 class="mb-1 fs-22">{{ Auth::user()->name }}</h4>
@@ -782,7 +784,7 @@
                 <h5>Ad Campaign Tutorials Video</h5>
                 <a href="javascript:;" class="fa fa-play"></a>
             </div>
-        </div>
+          </div>
 
         <!--**********************************
             Content body start

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>NFT Ads</title>
+    <title>{{ env("APP_NAME") }}</title>
     @vite('resources/css/app.css')
     <link rel="icon" type="image/x-icon" href="{!! asset('uploads') !!}/logo/favicon.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">

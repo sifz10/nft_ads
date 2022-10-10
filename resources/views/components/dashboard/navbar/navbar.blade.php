@@ -12,8 +12,8 @@
                         <span class="nav-text">Ads</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="./app-profile.html">Create Ads</a></li>
-                        <li><a href="./app-profile.html">View Ads</a></li>
+                        <li><a href="{!! route('create.ads') !!}">Create Ads</a></li>
+                        <li><a href="{!! route('index.ads') !!}">View Ads</a></li>
                     </ul>
                 </li>
                 <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -22,8 +22,8 @@
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="./chart-flot.html">Generel Settings</a></li>
-                        <li><a href="./chart-chartjs.html">Ads</a></li>
-                        <li><a href="./chart-morris.html">Users</a></li>
+                        <li><a href="{!! route('index.ads') !!}">Ads</a></li>
+                        <li><a href="{!! route('index.users') !!}">Users</a></li>
                         <li><a href="./chart-chartjs.html">Roles & Permissions</a></li>
                     </ul>
                 </li>

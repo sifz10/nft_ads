@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\{
     SocialmediaController,
+    AdsController,
+    UserController,
 };
 
 /*
@@ -32,6 +34,17 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/save/users/details/', [SocialmediaController::class, 'update'])->name('save.user.data');
+
+    // ads start
+    Route::get('/ads/create/', [AdsController::class, 'create'])->name('create.ads');
+    Route::get('/ads/targeting/', [AdsController::class, 'tageting'])->name('targeting.ads');
+    Route::get('/ads/payment/', [AdsController::class, 'payments'])->name('payments.ads');
+    Route::get('/ads/', [AdsController::class, 'index'])->name('index.ads');
+    // ads ends
+
+    // Users Start
+    Route::get('/users/', [UserController::class, 'index'])->name('index.users');
+    // Users End
 });
 
 
