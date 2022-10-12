@@ -16,42 +16,43 @@ Create Ads
                     <a href="javascript:void(0);" class="fs-18">Add new campaign</a>
                 </div>
             </div>
+            <form action="{!! route('ads.store.step_1') !!}" method="post" enctype="multipart/form-data">
             <div>
-                <a href="{!! route('targeting.ads') !!}" class="btn btn-primary ml-3">Next</a>
+                <button type="submit" class="btn btn-primary ml-3">Next</button>
             </div>
         </div>
         <div class="row">
             <div class="col-xl-12 col-xxl-12 col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <form>
+                          @csrf
                             <div class="form-row">
                                 <div class="form-group col-xl-12">
                                     <label class="text-black font-w500 mb-3">Ad Name</label><span class="text-danger ml-1">*</span>
-                                    <input type="text" class="form-control" placeholder="Promotion Ads">
+                                    <input type="text" class="form-control" name="ads_name" placeholder="Promotion Ads">
                                 </div>
                                 <div class="form-group col-xl-12">
                                     <label class="text-black font-w500 mb-3">Ad Title</label><span class="text-danger ml-1">*</span>
-                                    <input type="text" class="form-control" placeholder="Get 70% OFF Discount from Westoreid">
+                                    <input type="text" class="form-control" name="ads_title" placeholder="Get 70% OFF Discount from Westoreid">
                                 </div>
                                 <div class="form-group col-xl-12">
                                     <label class="text-black font-w500 mb-3">Url</label><span class="text-danger ml-1">*</span>
-                                    <input type="text" class="form-control" placeholder="https://example.com/">
+                                    <input type="text" class="form-control" name="ads_url" placeholder="https://example.com/">
                                 </div>
                                 <div class="form-group col-xl-12">
                                     <label class="text-black font-w500 mb-3">Price</label><span class="text-danger ml-1">*</span>
-                                    <input type="text" class="form-control" placeholder="0.03 BNB">
+                                    <input type="text" class="form-control" name="ads_price" placeholder="0.03 TDND">
                                 </div>
                                 <div class="form-group col-xl-12">
                                     <label class="text-black font-w500 mb-3">Image (1240x100)</label><span class="text-danger ml-1">*</span>
-                                    <input type="file" accept="image/*" onchange="loadBanner(event)" class="form-control">
+                                    <input type="file" accept="image/*" name="ads_banner" onchange="loadBanner(event)" class="form-control">
                                     <br>
                                     <label for="">Ad Preview</label>
                                     <img id="banner" height="100" width="1170" style="max-width: 100%; overflow: hidden; vertical-align: middle; border: 1px black solid">
                                 </div>
                                 <div class="form-group col-xl-12">
                                     <label class="text-black font-w500 mb-3">Description</label><span class="text-danger ml-1">*</span>
-                                    <textarea class="form-control" rows="13" placeholder="Write your ads description..."></textarea>
+                                    <textarea class="form-control" rows="13" name="ads_desc" placeholder="Write your ads description..."></textarea>
                                 </div>
                             </div>
                         </form>

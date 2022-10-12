@@ -37,8 +37,15 @@ Route::middleware(['auth'])->group(function () {
 
     // ads start
     Route::get('/ads/create/', [AdsController::class, 'create'])->name('create.ads');
-    Route::get('/ads/targeting/', [AdsController::class, 'tageting'])->name('targeting.ads');
-    Route::get('/ads/payment/', [AdsController::class, 'payments'])->name('payments.ads');
+    Route::post('/ads/create/done/', [AdsController::class, 'ads_step_one'])->name('ads.store.step_1');
+
+
+    Route::get('/ads/targeting/{id}', [AdsController::class, 'tageting'])->name('targeting.ads');
+    Route::post('/ads/targeting/save/', [AdsController::class, 'tageting_save'])->name('targeting.ads.save');
+
+    Route::get('/ads/payment/{id}', [AdsController::class, 'payments'])->name('payments.ads');
+    Route::get('/ads/payment/save', [AdsController::class, 'payments_save'])->name('payments.ads.save');
+
     Route::get('/ads/', [AdsController::class, 'index'])->name('index.ads');
     // ads ends
 

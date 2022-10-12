@@ -20,8 +20,8 @@ Step 3: Payment
                     <div class="tab-pane fade show active" id="border-top-contact" role="tabpanel" aria-labelledby="border-top-contact-tab">
                         <div class="row">
                             <div class="col-md-12">
-                                <p> <b> Total Amount: </b> 3 BNB </p>
-                                <input type="hidden" name="amount" id="inp_amount" value="0.1" aria-describedby="helpId">
+                                <p> <b> Total Amount: </b> {{ $ads->ads_price }} TDND </p>
+                                <input type="hidden" name="amount" id="inp_amount" value="{{ $ads->ads_price }}" aria-describedby="helpId">
                             </div>
                             <div class="col-md-12 mb-5">
                                 <button type="button" class="btn btn-success" name="button" onClick="startProcess()">Connect Wallet</button>
@@ -86,7 +86,7 @@ Step 3: Payment
                     method: 'eth_sendTransaction',
                     params: [{
                         from: from,
-                        to: "0x558572A544f6d6030b9a23C98d689D48D2EF4d9a",
+                        to: "0xA2718fe8775DeBED219cC4f703Fe4297E8273B4d",
                         value: '0x' + ((amount * 1000000000000000000).toString(16)),
                     }, ],
                 })

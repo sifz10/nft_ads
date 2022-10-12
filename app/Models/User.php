@@ -53,4 +53,8 @@ class User extends Authenticatable
     {
       return $this->hasOne(Socialmedia::class);
     }
+    public function ads()
+    {
+      return $this->hasMany(Ads::class);
+    }
 }

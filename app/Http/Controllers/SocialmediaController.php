@@ -39,7 +39,7 @@ class SocialmediaController extends Controller
     {
       $checking = Socialmedia::where('user_id', Auth::id())->get();
       // dd($checking);
-      if (!$checking ) {
+      if (!empty($checking) ) {
         $social = new Socialmedia;
         $social->facebook_link = $request->facebook_link;
         $social->instagram_link = $request->instagram_link;

@@ -8,5 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Ads extends Model
 {
     use HasFactory;
-    protected $guarded = ['id'];
+    protected $table = 'ads';
+    protected $primaryKey = 'id';
+
+    public function user()
+    {
+      return $this->belongsTo(User::class);
+    }
 }
