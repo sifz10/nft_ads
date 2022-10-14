@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('ads', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('ads_id');
             $table->string('ads_name');
             $table->string('ads_title');
             $table->string('ads_url');
@@ -28,6 +29,7 @@ return new class extends Migration
             $table->string('ads_deaily_clicks')->nullable();
             $table->string('ads_referral_code')->nullable();
 
+            $table->string('txHash')->nullable();
             $table->string('status')->default('Inactive');
             $table->timestamps();
         });

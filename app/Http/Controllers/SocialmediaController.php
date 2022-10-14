@@ -19,6 +19,7 @@ class SocialmediaController extends Controller
 
       $data = User::find(Auth::id());
       $data->name = $request->name;
+
       if($request->hasFile('avatar'))
       {
           $imageName = time().'.'.$request->avatar->extension();
@@ -37,15 +38,16 @@ class SocialmediaController extends Controller
 
     public function save_social($request)
     {
-      $checking = Socialmedia::where('user_id', Auth::id())->get();
-      // dd($checking);
-      if (!empty($checking) ) {
-        $social = new Socialmedia;
+      $checking = Socialmedia::where('user_id', Auth::id())->first();
+      if (!empty($checking)) {
+        $social = Auth::user()->socialmedia;
+        $social->wallet = $request->wallet;
         $social->facebook_link = $request->facebook_link;
         $social->instagram_link = $request->instagram_link;
         $social->twitter_link = $request->twitter_link;
       }else {
-        $social = Auth::user()->socialmedia;
+        $social = new Socialmedia;
+        $social->wallet = $request->wallet;
         $social->facebook_link = $request->facebook_link;
         $social->instagram_link = $request->instagram_link;
         $social->twitter_link = $request->twitter_link;

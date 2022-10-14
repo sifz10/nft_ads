@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -28,6 +29,10 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
+        $user = User::where('email', $request->email)->first();
+        if ($user->user_blocked == 1) {
+          return back()->with('danger', 'Your account was restricted. Please contact support to know more.');
+        }
         $request->authenticate();
 
         $request->session()->regenerate();

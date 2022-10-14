@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title> {{ env("APP_NAME") }} - @yield('page_title')</title>
     <!-- Favicon icon -->
@@ -187,8 +188,10 @@
                                 @php
                                   $user_social = Auth::user()->socialmedia;
                                 @endphp
-                                <label for="">Instagram</label>
 
+                                <label for="">Wallet</label>
+                                <input type="text" class="form-control mb-3" name="wallet" value="@if($user_social) {{ $user_social->wallet }} @endif">
+                                <label for="">Instagram</label>
                                 <input type="text" class="form-control mb-3" name="instagram_link" value="@if($user_social) {{ $user_social->instagram_link }} @endif ">
                                 <label for="">Twitter</label>
                                 <input type="text" class="form-control mb-3" name="twitter_link" value="@if($user_social) {{ $user_social->twitter_link }} @endif">

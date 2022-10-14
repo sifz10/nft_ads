@@ -67,75 +67,38 @@ Dashboard
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="example4" class="display min-w850">
-                                <thead>
-                                    <tr>
-                                        <th>Ads ID</th>
-                                        <th>Title</th>
-                                        <th>Link</th>
-                                        <th>Budget </th>
-                                        <th>Website </th>
-                                        <th>Status </th>
-                                        <th>Date</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>#54605</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>https://nftads.com/</td>
-                                        <td>0.19 eth</td>
-                                        <td>https://facebook.com</td>
+                          <table id="example4" class="display min-w850">
+                              <thead>
+                                  <tr>
+                                      <th>Ads ID</th>
+                                      <th>Title</th>
+                                      <th>Link</th>
+                                      <th>Budget </th>
+                                      <th>Status </th>
+                                      <th>Date</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                @foreach ($ads as $key => $ad)
+                                  <tr>
+                                      <td>{{ $ad->ads_id }}</td>
+                                      <td>{{ $ad->ads_title }}</td>
+                                      <td>{{ $ad->ads_url }}</td>
+                                      <td>{{ $ad->ads_price }} (tDND)</td>
+                                      @if ($ad->status == "Inactive")
+                                        <td>
+                                          <a class="btn btn-sm btn-danger" href="{!! route('payments.ads', $ad->id) !!}">
+                                            <small>Pay Now</small>
+                                          </a>
+                                        </td>
+                                      @else
                                         <td><span class="badge light badge-success">Active</span></td>
-                                        <td>2011/04/25</td>
+                                      @endif
+                                      <td>{{ $ad->created_at->format('Y/d/m'); }}</td>
                                     </tr>
-                                    <tr>
-                                        <td>#54605</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>https://nftads.com/</td>
-                                        <td>0.19 eth</td>
-                                        <td>https://facebook.com</td>
-                                        <td><span class="badge light badge-success">Active</span></td>
-                                        <td>2011/04/25</td>
-                                    </tr>
-                                    <tr>
-                                        <td>#54605</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>https://nftads.com/</td>
-                                        <td>0.19 eth</td>
-                                        <td>https://facebook.com</td>
-                                        <td><span class="badge light badge-success">Active</span></td>
-                                        <td>2011/04/25</td>
-                                    </tr>
-                                    <tr>
-                                        <td>#54605</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>https://nftads.com/</td>
-                                        <td>0.19 eth</td>
-                                        <td>https://facebook.com</td>
-                                        <td><span class="badge light badge-success">Active</span></td>
-                                        <td>2011/04/25</td>
-                                    </tr>
-                                    <tr>
-                                        <td>#54605</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>https://nftads.com/</td>
-                                        <td>0.19 eth</td>
-                                        <td>https://facebook.com</td>
-                                        <td><span class="badge light badge-success">Active</span></td>
-                                        <td>2011/04/25</td>
-                                    </tr>
-                                    <tr>
-                                        <td>#54605</td>
-                                        <td>Tiger Nixon</td>
-                                        <td>https://nftads.com/</td>
-                                        <td>0.19 eth</td>
-                                        <td>https://facebook.com</td>
-                                        <td><span class="badge light badge-success">Active</span></td>
-                                        <td>2011/04/25</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                @endforeach
+                              </tbody>
+                          </table>
                         </div>
                     </div>
                 </div>

@@ -37,6 +37,14 @@ class AdsController extends Controller
       ]);
     }
 
+    public function users_ads(Request $request)
+    {
+      $ads = Ads::where('user_id', Auth::id())->get();
+      return view('font.ads.user_ads', [
+        'ads' => $ads,
+      ]);
+    }
+
     public function ads_step_one(Request $request)
     {
       $request->validate([
@@ -49,6 +57,7 @@ class AdsController extends Controller
         'ads_desc' => 'required',
       ]);
       $ads = new Ads;
+      $ads->ads_id = "#".uniqid();
       $ads->ads_name = $request->ads_name;
       $ads->user_id = Auth::id();
       $ads->ads_title = $request->ads_title;
@@ -87,6 +96,38 @@ class AdsController extends Controller
 
     public function payments_save(Request $request)
     {
+      $ads = Ads::findOrFail($request->id);
+      $ads->txHash = $request->hashtx;
+      $ads->status = "Paid";
+      $ads->save();
 
+      return redirect('/ads/')->with('success', 'Your ads has been placed. You will see the progress soon.');
+    }
+
+    public function ads_approve(Request $request)
+    {
+      $ads = Ads::findOrFail($request->id);
+      $ads->txHash = "Admin Approved";
+      $ads->status = "Paid";
+      $ads->save();
+
+      return back()->with('success', 'You just approved an ad');
+    }
+
+    public function ads_stop(Request $request)
+    {
+      $ads = Ads::findOrFail($request->id);
+      $ads->status = "Paused";
+      $ads->save();
+
+      return back()->with('success', 'You just paused a ad');
+    }
+
+    public function ads_details(Request $request)
+    {
+      $ads = Ads::findOrFail($request->id);
+      return view('font.ads.details' , [
+        'ads' => $ads,
+      ]);
     }
 }

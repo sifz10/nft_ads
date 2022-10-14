@@ -21,13 +21,7 @@
                         <div class="row no-gutters">
                             <div class="col-xl-12">
                                 <div class="auth-form">
-                                  @if ($errors->any())
-                                      <div class="alert alert-danger">
-                                        @foreach ($errors->all() as $key => $error)
-                                          <small>{{ $error }}</small>
-                                        @endforeach
-                                      </div>
-                                    @endif
+                                  @include('Alerts.alerts')
                                     <h4 class="text-center mb-4">Sign in your account</h4>
                                     <form method="POST" action="{{ route('login') }}">
                                       @csrf

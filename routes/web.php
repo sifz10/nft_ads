@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Ads;
 use App\Http\Controllers\{
     SocialmediaController,
     AdsController,
@@ -27,7 +28,10 @@ Route::get('/', function () {
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $ads = Ads::where('user_id', Auth::id())->get();
+    return view('dashboard', [
+      'ads' => $ads,
+    ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
@@ -44,13 +48,22 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/ads/targeting/save/', [AdsController::class, 'tageting_save'])->name('targeting.ads.save');
 
     Route::get('/ads/payment/{id}', [AdsController::class, 'payments'])->name('payments.ads');
-    Route::get('/ads/payment/save', [AdsController::class, 'payments_save'])->name('payments.ads.save');
+    Route::post('/ads/payment/save', [AdsController::class, 'payments_save'])->name('payments.ads.save');
+    Route::get('/ads/payment/approve/without/{id}/payment', [AdsController::class, 'ads_approve'])->name('payments.ads.approve');
+    Route::get('/ads/payment/stop/{id}/payment', [AdsController::class, 'ads_stop'])->name('payments.ads.stop');
 
     Route::get('/ads/', [AdsController::class, 'index'])->name('index.ads');
+    Route::get('/ads/details/{id}/', [AdsController::class, 'ads_details'])->name('ads.details');
+    Route::get('/dashboard/ads/', [AdsController::class, 'users_ads'])->name('dashboard.index.ads');
     // ads ends
 
     // Users Start
     Route::get('/users/', [UserController::class, 'index'])->name('index.users');
+    Route::get('/users/details/{id}', [UserController::class, 'show_user'])->name('users.show');
+    Route::get('/users/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
+    Route::post('/users/update/', [UserController::class, 'update'])->name('users.update');
+    Route::get('/users/block/{id}', [UserController::class, 'blocked'])->name('users.blocked');
+    Route::get('/users/ads/by/{user}/{id}', [UserController::class, 'ads_by_user'])->name('users.show.ads_by');
     // Users End
 });
 

@@ -13,7 +13,7 @@
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="{!! route('create.ads') !!}">Create Ads</a></li>
-                        <li><a href="{!! route('index.ads') !!}">View Ads</a></li>
+                        <li><a href="{!! route('dashboard.index.ads') !!}">View Ads</a></li>
                     </ul>
                 </li>
                 <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">

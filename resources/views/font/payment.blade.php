@@ -16,12 +16,12 @@ Step 3: Payment
             <div class="tab-content" id="borderTopContent">
                 <form action="#" method="post">
                     @csrf
-                    <input type="hidden" name="adsid" value="#">
+                    <input type="hidden" name="adsid" value="{{ $ads->id }}">
                     <div class="tab-pane fade show active" id="border-top-contact" role="tabpanel" aria-labelledby="border-top-contact-tab">
                         <div class="row">
                             <div class="col-md-12">
                                 <p> <b> Total Amount: </b> {{ $ads->ads_price }} TDND </p>
-                                <input type="hidden" name="amount" id="inp_amount" value="{{ $ads->ads_price }}" aria-describedby="helpId">
+                                <input type="hidden" name="amount" id="inp_amount" value="0.1" aria-describedby="helpId">
                             </div>
                             <div class="col-md-12 mb-5">
                                 <button type="button" class="btn btn-success" name="button" onClick="startProcess()">Connect Wallet</button>
@@ -92,16 +92,16 @@ Step 3: Payment
                 })
                 .then((txHash) => {
                     if (txHash) {
-                        $("#alert").append(`<div class="alert alert-success"> Your payment success (Click here to verify 👉) <a href="https://ropsten.etherscan.io/tx/` + txHash + `" target="_blank">` + txHash + `</a></div>`)
+                        $("#alert").append(`<div class="alert alert-success"> Your payment success (Click here to verify 👉) <a href="https://testnet.dynoscan.io/tx/` + txHash + `" target="_blank">` + txHash + `</a></div>`)
                         let hashtx = txHash;
                         let adsid = $("input[name=adsid]").val();
                         let _token = $('meta[name="csrf-token"]').attr('content');
                         $.ajax({
-                            url: "/payment",
+                            url: "/ads/payment/save",
                             type: "POST",
                             data: {
                                 hashtx: hashtx,
-                                adsid: adsid,
+                                id: adsid,
                                 _token: _token
                             },
                             success: function(response) {
