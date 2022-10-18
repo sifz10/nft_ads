@@ -68,7 +68,7 @@ class AdsController extends Controller
       {
         $imageName = time().'.'.$request->ads_banner->extension();
         $path = $request->ads_banner->move('uploads/ads/', $imageName);
-        Image::make($path)->fit(400, 400)->save($path);
+        Image::make($path)->fit(1170, 100)->save($path);
         $ads->ads_banner = $path;
       }
       $ads->ads_desc = $request->ads_desc;
@@ -129,5 +129,20 @@ class AdsController extends Controller
       return view('font.ads.details' , [
         'ads' => $ads,
       ]);
+    }
+
+    public function nft_ads_api(Request $request)
+    {
+      $ads = Ads::get(['ads_title', 'ads_url', 'ads_banner', 'ads_id']);
+      $total_ads = $ads->count();
+      $array_ads = json_decode($ads);
+
+      $random_number = rand(0, $total_ads-1);
+      return $array_ads[$random_number];
+    }
+
+    public function ads_codes(Request $request)
+    {
+      return view('font.code.ads');
     }
 }

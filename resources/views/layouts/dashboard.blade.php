@@ -225,7 +225,7 @@
             <a href="{!! route('logout') !!}" class="btn btn-outline-danger d-block btn-lg mt-5">Logout</a>
             <div class="card-campaign mt-5">
                 <h5>Ad Campaign Tutorials Video</h5>
-                <a href="javascript:;" class="fa fa-play"></a>
+                <a target="_blank" href="{{ \App\Models\Setting::find(1)->tutorial_link }}" class="fa fa-play"></a>
             </div>
           </div>
 

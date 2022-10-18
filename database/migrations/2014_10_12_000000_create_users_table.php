@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('account_type');
             $table->rememberToken();
+            $table->string('role')->default('User');
             $table->timestamps();
         });
     }

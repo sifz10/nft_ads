@@ -10,9 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kalam&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+
 </head>
 
-<body class="bg-gray-900">
+<body class="bg-gray-900" id="ads_show">
     <nav class="bg-gray-800">
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div class="relative flex h-16 items-center justify-between">
@@ -67,7 +68,7 @@
     </nav>
     <div class="container mx-auto">
         <div class="columns-1 flex justify-center mt-12">
-            <h1 class="text-8xl font-extrabold text-white font-sikscreen">Meet Our Brand</h1>
+            <h1 class="text-8xl font-extrabold text-white text-center font-sikscreen">Meet Our Brand</h1>
         </div>
         <div class="columns-1 flex justify-center mt-5">
             <h1 class="text-8xl font-extrabold text-zinc-500 text-center font-sikscreen">New NFT Ad Network</h1>
@@ -94,7 +95,8 @@
         <div class="columns-1 flex justify-center mt-1">
             <p class="text-lg font-medium text-white font-kalam">network of crypto currency and NFT related websites.</p>
         </div>
-
+        <div id="ads_output" style="text-align: center;">
+        </div>
         <div class="columns-1 mt-14 mb-14" >
 
             <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -180,7 +182,8 @@
             </div>
 
         </div>
-
+        <div id="ads_output1" style="text-align: center;">
+        </div>
         <div class="columns-1 flex justify-center mt-10 mb-10">
             <div class="max-w-xl rounded overflow-hidden shadow-lg bg-gray-700">
                 <img class="w-full" src="{!! asset('uploads/images/world.png') !!}" alt="Sunset in the mountains">
@@ -198,9 +201,10 @@
             </div>
         </div>
 
+        <div id="ads_output2" style="text-align: center;">
+        </div>
 
     </div>
-
 
     <footer class="p-4 bg-gray-800 shadow md:px-6 md:py-8 dark:bg-gray-900">
         <div class="sm:flex sm:items-center sm:justify-between">
@@ -221,6 +225,7 @@
     </footer>
 
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    <script async src="{!! asset('assets/js/api/ads.js') !!}" crossorigin="anonymous"></script>
 </body>
 
 </html>

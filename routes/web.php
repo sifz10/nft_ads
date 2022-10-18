@@ -8,6 +8,7 @@ use App\Http\Controllers\{
     SocialmediaController,
     AdsController,
     UserController,
+    SettingController,
 };
 
 /*
@@ -65,6 +66,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/users/block/{id}', [UserController::class, 'blocked'])->name('users.blocked');
     Route::get('/users/ads/by/{user}/{id}', [UserController::class, 'ads_by_user'])->name('users.show.ads_by');
     // Users End
+
+    // Settings Start
+    Route::get('/settings/', [SettingController::class, 'settings_index'])->name('settings.index');
+    Route::post('/settings/save', [SettingController::class, 'settings_save'])->name('settings.save');
+    // Settings End
+
+    // Ads Code Start
+    Route::get('/ads/code/', [AdsController::class, 'ads_codes'])->name('ads.code');
+    // Ads Code End
 });
 
 
