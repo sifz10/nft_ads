@@ -30,7 +30,7 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         $user = User::where('email', $request->email)->first();
-        if ($user->user_blocked == 1) {
+        if (!empty($user) &&$user->user_blocked == 1) {
           return back()->with('danger', 'Your account was restricted. Please contact support to know more.');
         }
         $request->authenticate();

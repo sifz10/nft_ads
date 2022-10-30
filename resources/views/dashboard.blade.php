@@ -106,4 +106,64 @@ Dashboard
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+var flotLine1 = function(){
+var newCust = [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]];
+var retCust = [[0, 1], [1, 2], [2, 5], [3, 3], [4, 5], [5, 6], [6, 9]];
+
+var plot = $.plot($('#flotLine1'), [
+  {
+    data: newCust,
+    label: 'New Customer',
+    color: '#52b141'
+  },
+  {
+    data: retCust,
+    label: 'Returning Customer',
+    color: '#ff285c'
+  }
+],
+{
+  series: {
+    lines: {
+      show: true,
+      lineWidth: 1
+    },
+    shadowSize: 0
+  },
+  points: {
+    show: false,
+  },
+  legend: {
+    noColumns: 1,
+    position: 'nw'
+  },
+  grid: {
+    hoverable: true,
+    clickable: true,
+    borderColor: '#ddd',
+    borderWidth: 0,
+    labelMargin: 5,
+    backgroundColor: 'transparent'
+  },
+  yaxis: {
+    min: 0,
+    max: 15,
+    color: 'transparent',
+    font: {
+      size: 10,
+      color: '#999'
+    }
+  },
+  xaxis: {
+    color: 'transparent',
+    font: {
+      size: 10,
+      color: '#999'
+    }
+  }
+});
+}
+</script>
 @endsection
