@@ -3,7 +3,7 @@
 
 
  var dzChartlist = function(){
-	
+
 	var screenWidth = $(window).width();
 
 	var flotBar1 = function(){
@@ -52,7 +52,7 @@
 				lineWidth: 0,
 				fillColor: '#ff285c'
 			}
-		}], 
+		}],
 		{
 			grid: {
 				borderWidth: 1,
@@ -74,67 +74,11 @@
 			}
 		});
 	}
-	var flotLine1 = function(){
-		var newCust = [[0, 2], [1, 3], [2, 6], [3, 5], [4, 7], [5, 8], [6, 10]];
-		var retCust = [[0, 1], [1, 2], [2, 5], [3, 3], [4, 5], [5, 6], [6, 9]];
 
-		var plot = $.plot($('#flotLine1'), [
-			{
-				data: newCust,
-				label: 'New Customer',
-				color: '#52b141'
-			},
-			{
-				data: retCust,
-				label: 'Returning Customer',
-				color: '#ff285c'
-			}
-		],
-		{
-			series: {
-				lines: {
-					show: true,
-					lineWidth: 1
-				},
-				shadowSize: 0
-			},
-			points: {
-				show: false,
-			},
-			legend: {
-				noColumns: 1,
-				position: 'nw'
-			},
-			grid: {
-				hoverable: true,
-				clickable: true,
-				borderColor: '#ddd',
-				borderWidth: 0,
-				labelMargin: 5,
-				backgroundColor: 'transparent'
-			},
-			yaxis: {
-				min: 0,
-				max: 15,
-				color: 'transparent',
-				font: {
-					size: 10,
-					color: '#999'
-				}
-			},
-			xaxis: {
-				color: 'transparent',
-				font: {
-					size: 10,
-					color: '#999'
-				}
-			}
-		});
-	}
 	var flotLine2 = function(){
 		var newCust = [[0, 2], [1, 3], [2, 6], [3, 5], [4, 7], [5, 8], [6, 10]];
 		var retCust = [[0, 1], [1, 2], [2, 5], [3, 3], [4, 5], [5, 6], [6, 9]];
-		
+
 		var plot = $.plot($('#flotLine2'), [
 			{
 				data: newCust,
@@ -191,13 +135,13 @@
 					color: '#fff'
 				}
 			}
-		});		
+		});
 	}
-	
+
 	var flotLine3 = function(){
 		var newCust2 = [[0, 10], [1, 7], [2, 8], [3, 9], [4, 6], [5, 5], [6, 7]];
 		var retCust2 = [[0, 8], [1, 5], [2, 6], [3, 8], [4, 4], [5, 3], [6, 6]];
-		
+
 		var plot = $.plot($('#flotLine3'), [
 			{
 				data: newCust2,
@@ -254,7 +198,7 @@
 	var flotArea1 = function(){
 		var newCust = [[0, 2], [1, 3], [2, 6], [3, 5], [4, 7], [5, 8], [6, 10]];
 		var retCust = [[0, 1], [1, 2], [2, 5], [3, 3], [4, 5], [5, 6], [6, 9]];
-		
+
 		var plot = $.plot($('#flotArea1'), [
 			{
 				data: newCust,
@@ -312,7 +256,7 @@
 	var flotArea2 = function(){
 		var newCust = [[0, 2], [1, 3], [2, 6], [3, 5], [4, 7], [5, 8], [6, 10]];
 		var retCust = [[0, 1], [1, 2], [2, 5], [3, 3], [4, 5], [5, 6], [6, 9]];
-		
+
 		var plot = $.plot($('#flotArea2'), [
 			{
 				data: newCust,
@@ -401,8 +345,8 @@
 		});
 	}
 
-	
-	
+
+
 	function showTooltip(x, y, contents) {
 		$('<div id="tooltip" class="tooltipflot">' + contents + '</div>').css({
 			position: 'absolute',
@@ -501,10 +445,10 @@
 			}
 			return res;
 		}
-		
+
 		// Set up the control widget
 		var updateInterval = 1000;
-		
+
 		var plot5 = $.plot('#flotRealtime2', [getRandomData()], {
 			colors: ['#52b141'],
 			series: {
@@ -538,9 +482,9 @@
 			}
 		});
 
-		
 
-		
+
+
 		update_plot5();
 		function update_plot5() {
 			plot5.setData([getRandomData()]);
@@ -548,35 +492,35 @@
 			setTimeout(update_plot5, updateInterval);
 		}
 	}
-	
 
-	
+
+
 
 	/* Function ============ */
 		return {
 			init:function(){
 			},
-			
-			
+
+
 			load:function(){
-				flotBar1();	
+				flotBar1();
 				flotBar2();
-				flotLine1();	
-				flotLine2();	
-				flotLine3();		
+				flotLine1();
+				flotLine2();
+				flotLine3();
 				flotArea1();
 				flotArea2();
 				flotLine4();
 				flotRealtime1();
 				flotRealtime2();
 			},
-			
+
 			resize:function(){
-				flotBar1();	
+				flotBar1();
 				flotBar2();
-				flotLine1();	
-				flotLine2();	
-				flotLine3();		
+				flotLine1();
+				flotLine2();
+				flotLine3();
 				flotArea1();
 				flotArea2();
 				flotLine4();
@@ -584,18 +528,18 @@
 				flotRealtime2();
 			}
 		}
-	
+
 	}();
 
 	jQuery(document).ready(function(){
 	});
-		
+
 	jQuery(window).on('load',function(){
 		dzChartlist.load();
 	});
 
 	jQuery(window).on('resize',function(){
 		dzChartlist.resize();
-	});     
+	});
 
 })(jQuery);
