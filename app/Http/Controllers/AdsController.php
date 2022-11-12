@@ -57,7 +57,7 @@ class AdsController extends Controller
         'ads_desc' => 'required',
       ]);
       $ads = new Ads;
-      $ads->ads_id = "#".uniqid();
+      $ads->ads_id = uniqid();
       $ads->ads_name = $request->ads_name;
       $ads->user_id = Auth::id();
       $ads->ads_title = $request->ads_title;
