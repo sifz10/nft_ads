@@ -10,6 +10,7 @@ use App\Http\Controllers\{
     UserController,
     SettingController,
     ClickController,
+    DashboardController,
 };
 
 /*
@@ -27,16 +28,13 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 Route::get('/nft/click/{ads_id}', [ClickController::class, 'clicks'])->name('nft_ads_click');
-Route::get('/dashboard', function () {
-    $ads = Ads::where('user_id', Auth::id())->get();
-    return view('dashboard', [
-      'ads' => $ads,
-    ]);
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/nft/view/{ads_id}', [ClickController::class, 'view'])->name('nft_ads_view');
+
 
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/save/users/details/', [SocialmediaController::class, 'update'])->name('save.user.data');
 
     // ads start

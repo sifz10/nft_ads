@@ -111,10 +111,10 @@ Dashboard
 var overlappingBarsChart = function(){
   //Overlapping bars on mobile
   var data = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
     series: [
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      [{{ $day_today_click }}, {{ $day_one_click }}, {{ $day_two_click }}, {{ $day_three_click }}, {{ $day_four_click }}, {{ $day_five_click }}, {{ $day_six_click }}, {{ $day_seven_click }}, {{ $day_eight_click }}, {{ $day_nine_click }}],
+      [{{ $day_today_view }}, {{ $day_one_view }}, {{ $day_two_view }}, {{ $day_three_view }}, {{ $day_four_view }}, {{ $day_five_view }}, {{ $day_six_view }}, {{ $day_seven_view }}, {{ $day_eight_view }}, {{ $day_nine_view }}]
     ]
     };
   var options = {
@@ -136,15 +136,15 @@ var lineTooltipsChart = function(){
   //Line chart with tooltips
 
     new Chartist.Line('#line-chart-tooltips', {
-    labels: ['1', '2', '3', '4', '5', '6'],
+    labels: ['0', '1', '2', '3', '4', '5', '6' , '7' , '8' , '9'],
     series: [
       {
-      name: 'Fibonacci sequence',
-      data: [0, 0, 0, 0, 0, 0]
-      },
+      name: 'Ads Clicks',
+      data: [{{ $day_today_click }}, {{ $day_one_click }}, {{ $day_two_click }}, {{ $day_three_click }}, {{ $day_four_click }}, {{ $day_five_click }}, {{ $day_six_click }}, {{ $day_seven_click }}, {{ $day_eight_click }}, {{ $day_nine_click }}]
+    },
       {
-      name: 'Golden section',
-      data: [0, 0, 0, 0, 0, 0]
+      name: 'Ads View',
+      data: [{{ $day_today_view }}, {{ $day_one_view }}, {{ $day_two_view }}, {{ $day_three_view }}, {{ $day_four_view }}, {{ $day_five_view }}, {{ $day_six_view }}, {{ $day_seven_view }}, {{ $day_eight_view }}, {{ $day_nine_view }}]
       }
     ]
     },
@@ -182,18 +182,18 @@ var lineTooltipsChart = function(){
 
 }
 var flotLine1 = function(){
-  var newCust = [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]];
-  var retCust = [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]];
+  var newCust = [[0, {{ $day_nine_view }}], [1, {{ $day_eight_view }}], [2, {{ $day_seven_view }}], [3, {{ $day_six_view }}], [4, {{ $day_five_view }}], [5, {{ $day_four_view }}], [6, {{ $day_three_view }}], [7, {{ $day_two_view }}], [8, {{ $day_one_view }}], [9, {{ $day_today_view }}]];
+  var retCust = [[0, {{ $day_nine_click }}], [1, {{ $day_eight_click }}], [2, {{ $day_seven_click }}], [3, {{ $day_six_click }}], [4, {{ $day_five_click }}], [5, {{ $day_four_click }}], [6, {{ $day_three_click }}], [7, {{ $day_two_click }}], [8, {{ $day_one_click }}], [9, {{ $day_today_click }}]];
 
   var plot = $.plot($('#flotLine1'), [
     {
       data: newCust,
-      label: 'New Customer',
+      label: 'Ads View',
       color: '#52b141'
     },
     {
       data: retCust,
-      label: 'Returning Customer',
+      label: 'Ads Clicks',
       color: '#ff285c'
     }
   ],
