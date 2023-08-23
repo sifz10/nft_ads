@@ -11,6 +11,7 @@ use App\Http\Controllers\{
     SettingController,
     ClickController,
     DashboardController,
+    TrendingController,
 };
 
 /*
@@ -36,6 +37,8 @@ Route::get('/nft/view/{ads_id}', [ClickController::class, 'view'])->name('nft_ad
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/save/users/details/', [SocialmediaController::class, 'update'])->name('save.user.data');
+
+    Route::resource('trendings', TrendingController::class);
 
     // ads start
     Route::get('/ads/create/', [AdsController::class, 'create'])->name('create.ads');

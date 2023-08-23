@@ -25,6 +25,7 @@
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="{!! route('settings.index') !!}">Generel Settings</a></li>
+                        <li><a href="{!! route('trendings.index') !!}">Trending Chains</a></li>
                         <li><a href="{!! route('index.ads') !!}">Ads</a></li>
                         <li><a href="{!! route('index.users') !!}">Users</a></li>
                     </ul>

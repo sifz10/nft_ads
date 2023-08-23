@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\TrendingApiController;
+
 use App\Http\Controllers\{
     AdsController,
 };
@@ -22,3 +24,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/nft/ads/', [AdsController::class, 'nft_ads_api'])->name('nft_ads_api');
+Route::get('trendings', [TrendingApiController::class, 'getTopActiveTrendings']);
